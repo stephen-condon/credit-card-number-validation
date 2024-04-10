@@ -7,6 +7,11 @@ import (
 	"strings"
 )
 
+type CreditCardValidator interface {
+	Validate(string) bool
+	ConstructCreditCardNumber(string) string
+}
+
 func Validate(creditCardNumber string) bool {
 	if !hasAllDigits(creditCardNumber) {
 		return false
